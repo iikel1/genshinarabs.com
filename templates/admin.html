@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+        <script src="{{url_for('static', filename='main.js')}}"></script>
+        <title>G4A Dashboard</title>
+    </head>
+    <body>
+        <div class="banner">
+            <div class="navbar">
+                <img src="https://cdn.discordapp.com/attachments/905104421321592852/984824068475850772/logo.png" class="logo">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                </ul>
+                <ul>
+                    <li><a href="/logout">Home and logout</a></li>
+                </ul>
+            </div>
+            <div class="containeradmin">
+                <div class="card">
+                    <div class="inner-box">
+                        <div class="card-front">
+                            <h2>New Command</h2>
+                            <form action="#" method="post">
+                                {% if not submit %}
+                                <input type="text" name="cmdname" class="input-box" placeholder="أكتب إسم الأمر (باللإنجليزية فقط)" required>
+                                <input type="text" name="link1" class="input-box" placeholder="ضع رابط البيلد هنا" required>
+                                <input type="text" name="link2" class="input-box" placeholder="ضع رابط الموارد هنا" required>
+                                <input type="text" name="aliases" class="input-box" placeholder="ضع اللإختصارات التي تريدها للأمر" required>
+                                <button type="submit" value="submit" class="submit-btn">Submit</button>
+                                {% else %}
+                                <input type="text" name="cmdname" class="input-box" placeholder="أكتب إسم الأمر (باللإنجليزية فقط)" required disabled>
+                                <input type="text" name="link1" class="input-box" placeholder="ضع رابط البيلد هنا" required disabled>
+                                <input type="text" name="link2" class="input-box" placeholder="ضع رابط الموارد هنا" required disabled>
+                                <input type="text" name="aliases" class="input-box" placeholder="ضع اللإختصارات التي تريدها للأمر" required disabled>
+                                {% endif %}
+                            </form>
+                            {% if submit %}
+                            <h3>New Command Have been created</h3>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% if submit %}
+                    <div class="card">
+                        <div class="inner-box">
+                            <div class="card-front">
+                                <h2>New Command Added</h2>
+                                <h2>Name</h2>
+                                <p>{{ cmdname }}</p>
+                                <h2>Aliases</h2>
+                                <p>{{ aliases }}</p>
+                                <form action="/admin">
+                                    <button type="submit" >Done</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="containeradmins">
+                {% for i in data %}
+                <div class="card">
+                    <div class="inner-box">
+                        <div class="card-front">
+                            <h2>Command</h2>
+                            <h2>Name</h2>
+                            <p>{{ i['name'] }}</p>
+                            <h2>Aliases</h2>
+                            <ul>
+                                {% for c in i['aliases'] %}
+                                <p>-{{ c }}</p>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
