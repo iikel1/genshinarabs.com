@@ -16,8 +16,7 @@ app.config["DISCORD_BOT_TOKEN"] = TOKEN
 
 discord = DiscordOAuth2Session(app)
 
-mongo = 'mongodb+srv://HMusic:ylmdDpyjyCv4XzMr@hutao.14vgh.mongodb.net/Hutao?retryWrites=true&w=majority'
-myclient = pymongo.MongoClient(mongo)
+myclient = pymongo.MongoClient(MONGO)
 mydb = myclient["commands"]
 mycol = mydb["builds"]
 players = myclient["players"]
