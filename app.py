@@ -6,7 +6,7 @@ import pymongo
 
 app = Flask(__name__)
 
-os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "true"
+os.environ["OAUTHLIB_INSECURE_TR.ANSPORT"] = "true"
 
 app.config['SECRET_KEY'] = 'yoimiya'
 app.config["DISCORD_CLIENT_ID"] = CLIENT_ID
