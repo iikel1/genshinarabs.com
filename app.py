@@ -3,8 +3,11 @@ from config import *
 from flask import Flask, render_template, request, session, redirect, url_for
 from flask_discord import DiscordOAuth2Session, requires_authorization, Unauthorized
 import pymongo
+from resources.character import endpoint_list
 
 app = Flask(__name__)
+
+cher = ['amber', 'travler', 'albedo']
 
 os.environ["OAUTHLIB_INSECURE_TR.ANSPORT"] = "true"
 
@@ -14,6 +17,7 @@ app.config["DISCORD_CLIENT_SECRET"] = CLIENT_SECRET
 app.config["DISCORD_REDIRECT_URI"] = REDIRECT_URI
 app.config["DISCORD_BOT_TOKEN"] = TOKEN
 
+
 discord = DiscordOAuth2Session(app)
 
 myclient = pymongo.MongoClient(MONGO)
@@ -22,7 +26,7 @@ mycol = mydb["builds"]
 players = myclient["players"]
 iddb = players["id"]
 
-admins = [469872662961979403, 593079068220456961]
+admins = [853311019509481523]
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
@@ -80,13 +84,16 @@ def admin():
             return render_template('admin.html', submit=False, data=data)
     else :
         return redirect('/')
-    
+
+
 
 @app.errorhandler(Unauthorized)
 def redirect_unauthorized(e):
     return redirect('/')
 
-
+for endpoint in endpoint_list:
+    name = endpoint['name']
+    app.add_url_rule(f"/library{endpoint['route']}", view_func=endpoint['view_func'], defaults = {"name" : endpoint['name']})
 
 if __name__ == '__main__':
     app.run(debug=True)
