@@ -85,7 +85,9 @@ def admin():
     else :
         return redirect('/')
 
-
+@app.route('/library')
+def library():
+    return render_template('library.html', data=endpoint_list)
 
 @app.errorhandler(Unauthorized)
 def redirect_unauthorized(e):

@@ -147,6 +147,7 @@ body {
   grid-gap: 30px;
   justify-content: center;
 }
+
 .card {
   width: 350px;
   height: 400px;
@@ -259,7 +260,58 @@ form {
     width: 60%;
   }
 }
+.character-list {
+  display: inline-block;
+  align-items: center;
+  padding: 5px;
+  grid-gap: 18px;
+  justify-content: center;
+}
 
+.c-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  box-shadow: 0 0 40px 20px rgba(0, 0, 0, 0.26);
+}
+.c-card p {
+  font-weight: normal;
+  font-size: 15px;
+  text-align: center;
+  color: #fff;
+  margin-top: 5px;
+}
+.c-card img {
+  border-style: none;
+}
+.c-card .character-portrait {
+  width: 70px;
+  height: 70px;
+  border-radius: 4px;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.50);
+}
+.character-weapon {
+  position: absolute;
+  top: 1px;
+  width: 26px;
+  left: 5px;
+  height: 26px;
+  border-radius: 100px;
+}
+.character-type {
+  position: absolute;
+  top: 4px;
+  width: 22px;
+  left: 68px;
+  height: 22px;
+  border-radius: 100px;
+}
+.character-page {
+  padding: 30px;
+}
 
 @media only screen and (max-width:700px){
   * {
