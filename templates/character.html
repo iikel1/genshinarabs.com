@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +10,34 @@
     <body>
         <div class="banner-short">
             <div class="navbar">
+                <ul>
+                    <li><a href="/library">library</a></li>
+                </ul>
                 <img src="https://24wallpapers.com/app-gateway/wallpaper-uploads/wallpapers/28_12_2021/1640677143879_6.png" class="logo">
                 <ul>
                     <li><a href="/">Home</a></li>
                 </ul>
             </div>
         </div>
+        <div class="character-header">
+            <div class="character-portrait">
+                <img src="{{ data['type'] }}" class="character-type">
+                <img src="{{ data['weaponimg'] }}" class="character-weapon">
+                <img src="{{ data['portrait'] }}" class="character-icon">
+            </div>
+            <div class="character-info">
+                <h1>
+                    {{ data['name'] }}
+                </h1>
+                <div class="description">
+                    <p>{{ data['vision'] }} • {{ data['weapon'] }}</p>
+                </div>
+                
+            </div>
+            
+
+        </div>
+
+
     </body>
 </html>

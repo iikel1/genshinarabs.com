@@ -3,7 +3,7 @@
 Website to help arab genshin players.
 
 by
-- **Kel**
+**Kel**
 
 ### Connect
 

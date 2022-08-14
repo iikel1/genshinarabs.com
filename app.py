@@ -95,7 +95,7 @@ def redirect_unauthorized(e):
 
 for endpoint in endpoint_list:
     name = endpoint['name']
-    app.add_url_rule(f"/library{endpoint['route']}", view_func=endpoint['view_func'], defaults = {"name" : endpoint['name']})
+    app.add_url_rule(f"/library{endpoint['route']}", view_func=endpoint['view_func'], defaults = {"name" : endpoint['name'], "data" : endpoint})
 
 if __name__ == '__main__':
     app.run(debug=True)

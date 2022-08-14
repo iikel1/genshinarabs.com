@@ -1,8 +1,8 @@
 from flask import redirect, render_template
 
 
-def character(name):
-    return render_template('character.html', name=name)
+def character(name, data):
+    return render_template('character.html', name=name, data=data)
 
 charactericon = 'https://api.genshin.dev/characters/{}/icon.png'
 iconv2 = "https://rerollcdn.com/GENSHIN/Characters/{}.png"
