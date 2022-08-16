@@ -5,3 +5,9 @@ document.querySelector("form").onclick = function(e){
         x.hidden = true;
     }
 }
+
+let img = document.querySelector('character-build');
+
+document.querySelector('#b-img-icon').onclick = () => {
+    img.classList.toggle('active');
+}

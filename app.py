@@ -7,8 +7,6 @@ from resources.character import endpoint_list
 
 app = Flask(__name__)
 
-cher = ['amber', 'travler', 'albedo']
-
 os.environ["OAUTHLIB_INSECURE_TR.ANSPORT"] = "true"
 
 app.config['SECRET_KEY'] = 'yoimiya'

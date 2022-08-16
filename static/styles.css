@@ -311,6 +311,7 @@ form {
 }
 .character-page {
   padding: 30px;
+  text-align: center;
 }
 
 .character-header {
@@ -333,7 +334,7 @@ form {
   position: relative;
   display: flex;
   padding: 12px;
-  width: 310px;
+  width: 79%;
   height: 95px;
   right: 180px;
   top: -110px;
@@ -353,16 +354,23 @@ form {
   color: #fff;
   margin-top: 3px;
 }
-.character-info .description {
-  position: relative;
+.character-info .chara-description {
+  position: absolute;
   display: flex;
-  padding: 12px;
+  padding: 5px;
   width: 75px;
   height: 20px;
-  left: 70px;
+  margin-top: 24px;
+  white-space: nowrap;
   top: 40px;
 }
-
+.chara-name {
+  width: 130px;
+  height: 60px;
+  font-size: 14px;
+  display: inline-block;
+  white-space: nowrap;
+}
 .character-icon {
   width: 100%;
   border-radius: 100px;
@@ -384,15 +392,66 @@ form {
   height: 35px;
   border-radius: 100px;
 }
+.character-build img {
+  width: 100%;
+  height: 340px;
+  object-fit: contain;
+  object-position: center;
+  padding: 12px;
+  border-radius: 0.5rem;
+}
+.character-build {
+  position: relative;
+  padding: 10px;
+  display: block;
+  justify-self: center;
+  height: 350px;
+  width: 100%;
+  border-radius: 0.5rem;
+  margin: auto;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.50);
+}
+.buildimg {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+} 
+.buildimg h2 {
+  font-weight: 500;
+  color: #fff;
+}
+.img-icon {
+  font-size: 22px;
+  cursor: pointer;
+  display: block;
+  column-gap: 0.8rem;
+  margin: 10px;
+}
+.img-icon .bx{
+  color: rgb(141, 141, 247);
+}
+.img-icon .bx:hover{
+  color: white;
+}
+@media (max-width: 1058px){
 
-
-@media only screen and (max-width:700px){
-  * {
-    box-sizing: border-box;
+  .navbar {
+    width: 35%;
+  }
+  .character-header .character-info {
+    width: 71%;
+    right: 169px;
+    top: -109px;
   }
 
-  .banner {
-    width: 120%;
+}
+
+@media (max-width: 911px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
   .navbar {
     width: 85%;
@@ -410,5 +469,50 @@ form {
     margin: 30px 0;
     font-size: 20px;
   }
+  .character-header .character-info {
+    width: 48%;
+    height: 110px;
+    right: 150px;
+    top: -88px;
 
+
+  }
+  .character-header .character-portrait {
+    padding: 12px;
+    width: 110px;
+    right: 18px;
+    top: 22px;
+
+  }
+  .chara-name {
+    width: 130px;
+    height: 60px;
+    font-size: 14px;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .character-info .chara-description {
+    padding: 0px;
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    white-space: nowrap;
+    font-size: 25px;
+  }
+  .banner {
+    width: 50%;
+  }
+  .character-header .character-weapon {
+    position: absolute;
+    top: 4px;
+    width: 35px;
+    left: 1px;
+    height: 35px;
+    border-radius: 100px;
+  }
+  .character-header .character-type {
+    left: 74px;
+    height: 35px;
+    border-radius: 100px;
+  }
 }

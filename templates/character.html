@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
         <script src="{{url_for('static', filename='main.js')}}"></script>
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
         <title>{{ name }}</title>
     </head>
     <body>
@@ -26,14 +27,29 @@
                 <img src="{{ data['portrait'] }}" class="character-icon">
             </div>
             <div class="character-info">
-                <h1>
-                    {{ data['name'] }}
-                </h1>
-                <div class="description">
+                <div class="chara-name">
+                    <h1>
+                        {{ data['name'] }}
+                    </h1>
+                </div>
+                
+                <div class="chara-description">
                     <p>{{ data['vision'] }} • {{ data['weapon'] }}</p>
+                </div>
+                <div class="buildimg">
+                    <h2>Build Image</h2>
+                    <div class="img-icon">
+                        <i class='bx bx-image' id="b-img-icon"></i>
+                    </div>
                 </div>
                 
             </div>
+            <div class="character-build">
+                <img src="{{ data['build'] }}" id="buildimg">
+
+            </div>
+            <br>
+
             
 
         </div>

@@ -4,9 +4,10 @@ from flask import redirect, render_template
 def character(name, data):
     return render_template('character.html', name=name, data=data)
 
-charactericon = 'https://api.genshin.dev/characters/{}/icon.png'
-iconv2 = "https://rerollcdn.com/GENSHIN/Characters/{}.png"
+icons = "rerollcdn.com/GENSHIN/Characters/{}.png"
 weaponimages = 'https://rerollcdn.com/GENSHIN/Icons/NEW/{}.png'
+vision = '/static/images/Visions/{}.png'
+icons = '/static/images/icons/{}.png'
 
 endpoint_list = [
     {"route": "/anemo-traveler",
@@ -16,9 +17,10 @@ endpoint_list = [
     "weapon" : "سيف",
     "weaponimg" : f"{weaponimages}".format("sword-icon"),
     "vision" : "رياح",
-    "type" : "https://api.genshin.dev/elements/anemo/icon.png",
+    "type" : f"{vision}".format("Anemo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('traveler-anemo')
+    "portrait" : f"{icons}".format('traveler-anemo'),
+    "build" : "https://cdn.discordapp.com/attachments/905104421321592852/905120546000351292/Traveler_Anemo_Build.png"
     },
     {"route": "/electro-traveler",
     "view_func": character,
@@ -27,9 +29,10 @@ endpoint_list = [
     "weapon" : "سيف",
     "weaponimg" : f"{weaponimages}".format("sword-icon"),
     "vision" : "كهرباء",
-    "type" : "https://api.genshin.dev/elements/electro/icon.png",
+    "type" : f"{vision}".format("Electro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('traveler-electro')
+    "portrait" : f"{icons}".format('traveler-electro'),
+    "build" : "https://media.discordapp.net/attachments/905104421321592852/905120545367027752/Traveler_Electro_Build.png"
     },
     {"route": "/geo-traveler",
     "view_func": character,
@@ -38,9 +41,10 @@ endpoint_list = [
     "weapon" : "سيف",
     "weaponimg" : f"{weaponimages}".format("sword-icon"),
     "vision" : "أرض",
-    "type" : "https://api.genshin.dev/elements/geo/icon.png",
+    "type" : f"{vision}".format("Geo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('traveler-geo')
+    "portrait" : f"{icons}".format('traveler-geo'),
+    "build" : "https://cdn.discordapp.com/attachments/905104421321592852/905120519433637922/Traveler_Geo_Build.png"
     },
     {"route": "/albedo",
     "view_func": character,
@@ -49,9 +53,10 @@ endpoint_list = [
     "weapon" : "سيف",
     "weaponimg" : f"{weaponimages}".format("sword-icon"),
     "vision" : "أرض",
-    "type" : "https://api.genshin.dev/elements/geo/icon.png",
+    "type" : f"{vision}".format("Geo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('albedo')
+    "portrait" : f"{icons}".format('albedo'),
+    "build" : "https://cdn.discordapp.com/attachments/905104421321592852/928626712009388032/Albedo_Build.png"
     },
     {"route": "/aloy",
     "view_func": character,
@@ -60,9 +65,10 @@ endpoint_list = [
     "weapon" : "قوس",
     "weaponimg" : f"{weaponimages}".format("bow-icon"),
     "vision" : "ثلج",
-    "type" : "https://api.genshin.dev/elements/cryo/icon.png",
+    "type" : f"{vision}".format("Cryo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('aloy')
+    "portrait" : f"{icons}".format('aloy'),
+    "build" : "https://cdn.discordapp.com/attachments/905104421321592852/905120811139096596/Aloy_Build.png"
     },
     {"route": "/amber",
     "view_func": character,
@@ -71,9 +77,10 @@ endpoint_list = [
     "weapon" : "قوس",
     "weaponimg" : f"{weaponimages}".format("bow-icon"),
     "vision" : "نار",
-    "type" : "https://api.genshin.dev/elements/pyro/icon.png",
+    "type" : f"{vision}".format("Pyro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('amber')
+    "portrait" : f"{icons}".format('amber'),
+    "build" : "https://cdn.discordapp.com/attachments/905104421321592852/905120810757423175/Amber_Build.png"
     },
     {"route": "/kamisato-ayaka",
     "view_func": character,
@@ -82,9 +89,9 @@ endpoint_list = [
     "weapon" : "سيف",
     "weaponimg" : f"{weaponimages}".format("sword-icon"),
     "vision" : "ثلج",
-    "type" : "https://api.genshin.dev/elements/cryo/icon.png",
+    "type" : f"{vision}".format("Cryo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('ayaka')
+    "portrait" : f"{icons}".format('ayaka')
     },
     {"route": "/kamisato-ayato",
     "view_func": character,
@@ -93,9 +100,9 @@ endpoint_list = [
     "weapon" : "سيف",
     "weaponimg" : f"{weaponimages}".format("sword-icon"),
     "vision" : "ثلج",
-    "type" : "https://api.genshin.dev/elements/cryo/icon.png",
+    "type" : f"{vision}".format("Cryo"),
     "released" : True,
-    "portrait" : f"{iconv2}".format('Ayato')
+    "portrait" : f"{icons}".format('Ayato')
     },
     {"route": "/barbara",
     "view_func": character,
@@ -104,9 +111,9 @@ endpoint_list = [
     "weapon" : "كتاب",
     "weaponimg" : f"{weaponimages}".format("catalyst-icon"),
     "vision" : "ماء",
-    "type" : "https://api.genshin.dev/elements/hydro/icon.png",
+    "type" : f"{vision}".format("Hydro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('barbara')
+    "portrait" : f"{icons}".format('barbara')
     },
     {"route": "/beidou",
     "view_func": character,
@@ -115,9 +122,9 @@ endpoint_list = [
     "weapon" : "سيف ثقيل",
     "weaponimg" : f"{weaponimages}".format("claymore-icon"),
     "vision" : "كهرباء",
-    "type" : "https://api.genshin.dev/elements/electro/icon.png",
+    "type" : f"{vision}".format("Electro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('beidou')
+    "portrait" : f"{icons}".format('beidou')
     },
     {"route": "/bennett",
     "view_func": character,
@@ -126,9 +133,9 @@ endpoint_list = [
     "weapon" : "سيف",
     "weaponimg" : f"{weaponimages}".format("sword-icon"),
     "vision" : "نار",
-    "type" : "https://api.genshin.dev/elements/pyro/icon.png",
+    "type" : f"{vision}".format("Pyro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('bennett')
+    "portrait" : f"{icons}".format('bennett')
     },
     {"route": "/childe",
     "view_func": character,
@@ -137,9 +144,9 @@ endpoint_list = [
     "weapon" : "قوس",
     "weaponimg" : f"{weaponimages}".format("bow-icon"),
     "vision" : "ماء",
-    "type" : "https://api.genshin.dev/elements/hydro/icon.png",
+    "type" : f"{vision}".format("Hydro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('tartaglia')
+    "portrait" : f"{icons}".format('tartaglia')
     },
     {"route": "/chongyun",
     "view_func": character,
@@ -148,9 +155,9 @@ endpoint_list = [
     "weapon" : "سيف ثقيل",
     "weaponimg" : f"{weaponimages}".format("claymore-icon"),
     "vision" : "ثلج",
-    "type" : "https://api.genshin.dev/elements/cryo/icon.png",
+    "type" : f"{vision}".format("Cryo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('chongyun')
+    "portrait" : f"{icons}".format('chongyun')
     },
     {"route": "/diluc",
     "view_func": character,
@@ -159,9 +166,9 @@ endpoint_list = [
     "weapon" : "سيف ثقيل",
     "weaponimg" : f"{weaponimages}".format("claymore-icon"),
     "vision" : "ثلج",
-    "type" : "https://api.genshin.dev/elements/cryo/icon.png",
+    "type" : f"{vision}".format("Cryo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('diluc')
+    "portrait" : f"{icons}".format('diluc')
     },
     {"route": "/diona",
     "view_func": character,
@@ -170,9 +177,9 @@ endpoint_list = [
     "weapon" : "قوس",
     "weaponimg" : f"{weaponimages}".format("bow-icon"),
     "vision" : "ثلج",
-    "type" : "https://api.genshin.dev/elements/cryo/icon.png",
+    "type" : f"{vision}".format("Cryo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('diona')
+    "portrait" : f"{icons}".format('diona')
     },
     {"route": "/eula",
     "view_func": character,
@@ -181,9 +188,9 @@ endpoint_list = [
     "weapon" : "سيف ثقيل",
     "weaponimg" : f"{weaponimages}".format("claymore-icon"),
     "vision" : "ثلج",
-    "type" : "https://api.genshin.dev/elements/cryo/icon.png",
+    "type" : f"{vision}".format("Cryo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('eula')
+    "portrait" : f"{icons}".format('eula')
     },
     {"route": "/fischl",
     "view_func": character,
@@ -192,9 +199,9 @@ endpoint_list = [
     "weapon" : "قوس",
     "weaponimg" : f"{weaponimages}".format("bow-icon"),
     "vision" : "كهرباء",
-    "type" : "https://api.genshin.dev/elements/electro/icon.png",
+    "type" : f"{vision}".format("Electro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('fischl')
+    "portrait" : f"{icons}".format('fischl')
     },
     {"route": "/ganyu",
     "view_func": character,
@@ -203,9 +210,9 @@ endpoint_list = [
     "weapon" : "قوس",
     "weaponimg" : f"{weaponimages}".format("bow-icon"),
     "vision" : "ثلج",
-    "type" : "https://api.genshin.dev/elements/cryo/icon.png",
+    "type" : f"{vision}".format("Cryo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('ganyu')
+    "portrait" : f"{icons}".format('ganyu')
     },
     {"route": "/gorou",
     "view_func": character,
@@ -214,9 +221,9 @@ endpoint_list = [
     "weapon" : "قوس",
     "weaponimg" : f"{weaponimages}".format("bow-icon"),
     "vision" : "أرض",
-    "type" : "https://api.genshin.dev/elements/geo/icon.png",
+    "type" : f"{vision}".format("Geo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('gorou')
+    "portrait" : f"{icons}".format('gorou')
     },
     {"route": "/hutao",
     "view_func": character,
@@ -225,9 +232,9 @@ endpoint_list = [
     "weapon" : "رمح",
     "weaponimg" : f"{weaponimages}".format("polearm-icon"),
     "vision" : "نار",
-    "type" : "https://api.genshin.dev/elements/pyro/icon.png",
+    "type" : f"{vision}".format("Pyro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('hu-tao')
+    "portrait" : f"{icons}".format('hu-tao')
     },
     {"route": "/arataki-itto",
     "view_func": character,
@@ -236,9 +243,9 @@ endpoint_list = [
     "weapon" : "سيف ثقيل",
     "weaponimg" : f"{weaponimages}".format("claymore-icon"),
     "vision" : "أرض",
-    "type" : "https://api.genshin.dev/elements/geo/icon.png",
+    "type" : f"{vision}".format("Geo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('arataki-itto')
+    "portrait" : f"{icons}".format('arataki-itto')
     },
     {"route": "/jean",
     "view_func": character,
@@ -247,9 +254,9 @@ endpoint_list = [
     "weapon" : "سيف",
     "weaponimg" : f"{weaponimages}".format("sword-icon"),
     "vision" : "رياح",
-    "type" : "https://api.genshin.dev/elements/anemo/icon.png",
+    "type" : f"{vision}".format("Anemo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('jean')
+    "portrait" : f"{icons}".format('jean')
     },
     {"route": "/kaeya",
     "view_func": character,
@@ -258,9 +265,9 @@ endpoint_list = [
     "weapon" : "سيف",
     "weaponimg" : f"{weaponimages}".format("sword-icon"),
     "vision" : "ثلج",
-    "type" : "https://api.genshin.dev/elements/cryo/icon.png",
+    "type" : f"{vision}".format("Cryo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('kaeya')
+    "portrait" : f"{icons}".format('kaeya')
     },
     {"route": "/kaedehara-kazuha",
     "view_func": character,
@@ -269,9 +276,9 @@ endpoint_list = [
     "weapon" : "سيف",
     "weaponimg" : f"{weaponimages}".format("sword-icon"),
     "vision" : "رياح",
-    "type" : "https://api.genshin.dev/elements/anemo/icon.png",
+    "type" : f"{vision}".format("Anemo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('kazuha')
+    "portrait" : f"{icons}".format('kazuha')
     },
     {"route": "/keqing",
     "view_func": character,
@@ -280,9 +287,9 @@ endpoint_list = [
     "weapon" : "سيف",
     "weaponimg" : f"{weaponimages}".format("sword-icon"),
     "vision" : "كهرباء",
-    "type" : "https://api.genshin.dev/elements/electro/icon.png",
+    "type" : f"{vision}".format("Electro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('keqing')
+    "portrait" : f"{icons}".format('keqing')
     },
     {"route": "/klee",
     "view_func": character,
@@ -291,9 +298,9 @@ endpoint_list = [
     "weapon" : "كتاب",
     "weaponimg" : f"{weaponimages}".format("catalyst-icon"),
     "vision" : "نار",
-    "type" : "https://api.genshin.dev/elements/pyro/icon.png",
+    "type" : f"{vision}".format("Pyro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('klee')
+    "portrait" : f"{icons}".format('klee')
     },
     {"route": "/sangonomiya-kokomi",
     "view_func": character,
@@ -302,9 +309,9 @@ endpoint_list = [
     "weapon" : "كتاب",
     "weaponimg" : f"{weaponimages}".format("catalyst-icon"),
     "vision" : "ماء",
-    "type" : "https://api.genshin.dev/elements/hydro/icon.png",
+    "type" : f"{vision}".format("Hydro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('kokomi')
+    "portrait" : f"{icons}".format('kokomi')
     },
     {"route": "/kuki-shinobu",
     "view_func": character,
@@ -313,9 +320,9 @@ endpoint_list = [
     "weapon" : "سيف",
     "weaponimg" : f"{weaponimages}".format("sword-icon"),
     "vision" : "كهرباء",
-    "type" : "https://api.genshin.dev/elements/electro/icon.png",
+    "type" : f"{vision}".format("Electro"),
     "released" : True,
-    "portrait" : f"{iconv2}".format('Kuki%20Shinobu')
+    "portrait" : f"{icons}".format('Kuki%20Shinobu')
     },
     {"route": "/lisa",
     "view_func": character,
@@ -324,9 +331,9 @@ endpoint_list = [
     "weapon" : "كتاب",
     "weaponimg" : f"{weaponimages}".format("catalyst-icon"),
     "vision" : "كهرباء",
-    "type" : "https://api.genshin.dev/elements/electro/icon.png",
+    "type" : f"{vision}".format("Electro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('lisa')
+    "portrait" : f"{icons}".format('lisa')
     },
     {"route": "/mona",
     "view_func": character,
@@ -335,9 +342,9 @@ endpoint_list = [
     "weapon" : "كتاب",
     "weaponimg" : f"{weaponimages}".format("catalyst-icon"),
     "vision" : "ماء",
-    "type" : "https://api.genshin.dev/elements/hydro/icon.png",
+    "type" : f"{vision}".format("Hydro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('mona')
+    "portrait" : f"{icons}".format('mona')
     },
     {"route": "/ningguang",
     "view_func": character,
@@ -346,9 +353,9 @@ endpoint_list = [
     "weapon" : "كتاب",
     "weaponimg" : f"{weaponimages}".format("catalyst-icon"),
     "vision" : "أرض",
-    "type" : "https://api.genshin.dev/elements/geo/icon.png",
+    "type" : f"{vision}".format("Geo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('ningguang')
+    "portrait" : f"{icons}".format('ningguang')
     },
     {"route": "/noelle",
     "view_func": character,
@@ -357,9 +364,9 @@ endpoint_list = [
     "weapon" : "سيف ثقيل",
     "weaponimg" : f"{weaponimages}".format("claymore-icon"),
     "vision" : "أرض",
-    "type" : "https://api.genshin.dev/elements/geo/icon.png",
+    "type" : f"{vision}".format("Geo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('noelle')
+    "portrait" : f"{icons}".format('noelle')
     },
     {"route": "/qiqi",
     "view_func": character,
@@ -368,9 +375,9 @@ endpoint_list = [
     "weapon" : "سيف",
     "weaponimg" : f"{weaponimages}".format("sword-icon"),
     "vision" : "ثلج",
-    "type" : "https://api.genshin.dev/elements/cryo/icon.png",
+    "type" : f"{vision}".format("Cryo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('qiqi')
+    "portrait" : f"{icons}".format('qiqi')
     },
     {"route": "/raiden-shogun",
     "view_func": character,
@@ -379,9 +386,9 @@ endpoint_list = [
     "weapon" : "رمح",
     "weaponimg" : f"{weaponimages}".format("polearm-icon"),
     "vision" : "كهرباء",
-    "type" : "https://api.genshin.dev/elements/electro/icon.png",
+    "type" : f"{vision}".format("Electro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('raiden')
+    "portrait" : f"{icons}".format('raiden')
     },
     {"route": "/razor",
     "view_func": character,
@@ -390,9 +397,9 @@ endpoint_list = [
     "weapon" : "سيف ثقيل",
     "weaponimg" : f"{weaponimages}".format("claymore-icon"),
     "vision" : "كهرباء",
-    "type" : "https://api.genshin.dev/elements/electro/icon.png",
+    "type" : f"{vision}".format("Electro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('razor')
+    "portrait" : f"{icons}".format('razor')
     },
     {"route": "/rosaria",
     "view_func": character,
@@ -401,9 +408,9 @@ endpoint_list = [
     "weapon" : "رمح",
     "weaponimg" : f"{weaponimages}".format("polearm-icon"),
     "vision" : "ثلج",
-    "type" : "https://api.genshin.dev/elements/cryo/icon.png",
+    "type" : f"{vision}".format("Cryo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('rosaria')
+    "portrait" : f"{icons}".format('rosaria')
     },
     {"route": "/kujou-sara",
     "view_func": character,
@@ -412,9 +419,9 @@ endpoint_list = [
     "weapon" : "قوس",
     "weaponimg" : f"{weaponimages}".format("bow-icon"),
     "vision" : "كهرباء",
-    "type" : "https://api.genshin.dev/elements/electro/icon.png",
+    "type" : f"{vision}".format("Electro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('sara')
+    "portrait" : f"{icons}".format('sara')
     },
     {"route": "/sayu",
     "view_func": character,
@@ -423,9 +430,9 @@ endpoint_list = [
     "weapon" : "سيف ثقيل",
     "weaponimg" : f"{weaponimages}".format("claymore-icon"),
     "vision" : "رياح",
-    "type" : "https://api.genshin.dev/elements/anemo/icon.png",
+    "type" : f"{vision}".format("Anemo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('sayu')
+    "portrait" : f"{icons}".format('sayu')
     },
     {"route": "/shenhe",
     "view_func": character,
@@ -434,9 +441,9 @@ endpoint_list = [
     "weapon" : "رمح",
     "weaponimg" : f"{weaponimages}".format("polearm-icon"),
     "vision" : "ثلج",
-    "type" : "https://api.genshin.dev/elements/cryo/icon.png",
+    "type" : f"{vision}".format("Cryo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('shenhe')
+    "portrait" : f"{icons}".format('shenhe')
     },
     {"route": "/sucrose",
     "view_func": character,
@@ -445,9 +452,9 @@ endpoint_list = [
     "weapon" : "كتاب",
     "weaponimg" : f"{weaponimages}".format("catalyst-icon"),
     "vision" : "رياح",
-    "type" : "https://api.genshin.dev/elements/anemo/icon.png",
+    "type" : f"{vision}".format("Anemo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('sucrose')
+    "portrait" : f"{icons}".format('sucrose')
     },
     {"route": "/thoma",
     "view_func": character,
@@ -456,9 +463,9 @@ endpoint_list = [
     "weapon" : "رمح",
     "weaponimg" : f"{weaponimages}".format("polearm-icon"),
     "vision" : "نار",
-    "type" : "https://api.genshin.dev/elements/pyro/icon.png",
+    "type" : f"{vision}".format("Pyro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('thoma')
+    "portrait" : f"{icons}".format('thoma')
     },
     {"route": "/venti",
     "view_func": character,
@@ -467,9 +474,9 @@ endpoint_list = [
     "weapon" : "قوس",
     "weaponimg" : f"{weaponimages}".format("bow-icon"),
     "vision" : "رياح",
-    "type" : "https://api.genshin.dev/elements/anemo/icon.png",
+    "type" : f"{vision}".format("Anemo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('venti')
+    "portrait" : f"{icons}".format('venti')
     },
     {"route": "/xiangling",
     "view_func": character,
@@ -478,9 +485,9 @@ endpoint_list = [
     "weapon" : "رمح",
     "weaponimg" : f"{weaponimages}".format("polearm-icon"),
     "vision" : "نار",
-    "type" : "https://api.genshin.dev/elements/pyro/icon.png",
+    "type" : f"{vision}".format("Pyro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('xiangling')
+    "portrait" : f"{icons}".format('xiangling')
     },
     {"route": "/xiao",
     "view_func": character,
@@ -489,9 +496,9 @@ endpoint_list = [
     "weapon" : "رمح",
     "weaponimg" : f"{weaponimages}".format("polearm-icon"),
     "vision" : "رياح",
-    "type" : "https://api.genshin.dev/elements/anemo/icon.png",
+    "type" : f"{vision}".format("Anemo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('xiao')
+    "portrait" : f"{icons}".format('xiao')
     },
     {"route": "/xingqiu",
     "view_func": character,
@@ -500,9 +507,9 @@ endpoint_list = [
     "weapon" : "سيف",
     "weaponimg" : f"{weaponimages}".format("sword-icon"),
     "vision" : "ماء",
-    "type" : "https://api.genshin.dev/elements/hydro/icon.png",
+    "type" : f"{vision}".format("Hydro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('xingqiu')
+    "portrait" : f"{icons}".format('xingqiu')
     },
     {"route": "/xinyan",
     "view_func": character,
@@ -511,9 +518,9 @@ endpoint_list = [
     "weapon" : "سيف ثقيل",
     "weaponimg" : f"{weaponimages}".format("claymore-icon"),
     "vision" : "نار",
-    "type" : "https://api.genshin.dev/elements/pyro/icon.png",
+    "type" : f"{vision}".format("Pyro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('xinyan')
+    "portrait" : f"{icons}".format('xinyan')
     },
     {"route": "/yea-miko",
     "view_func": character,
@@ -522,9 +529,9 @@ endpoint_list = [
     "weapon" : "كتاب",
     "weaponimg" : f"{weaponimages}".format("catalyst-icon"),
     "vision" : "كهرباء",
-    "type" : "https://api.genshin.dev/elements/electro/icon.png",
+    "type" : f"{vision}".format("Electro"),
     "released" : True,
-    "portrait" : f"{iconv2}".format('Yae%20Miko')
+    "portrait" : f"{icons}".format('Yae%20Miko')
     },
     {"route": "/yanfei",
     "view_func": character,
@@ -533,9 +540,9 @@ endpoint_list = [
     "weapon" : "كتاب",
     "weaponimg" : f"{weaponimages}".format("catalyst-icon"),
     "vision" : "نار",
-    "type" : "https://api.genshin.dev/elements/pyro/icon.png",
+    "type" : f"{vision}".format("Pyro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('yanfei')
+    "portrait" : f"{icons}".format('yanfei')
     },
     {"route": "/yelan",
     "view_func": character,
@@ -544,9 +551,9 @@ endpoint_list = [
     "weapon" : "قوس",
     "weaponimg" : f"{weaponimages}".format("bow-icon"),
     "vision" : "ماء",
-    "type" : "https://api.genshin.dev/elements/hydro/icon.png",
+    "type" : f"{vision}".format("Hydro"),
     "released" : True,
-    "portrait" : f"{iconv2}".format('Yelan')
+    "portrait" : f"{icons}".format('Yelan')
     },
     {"route": "/yoimiya",
     "view_func": character,
@@ -555,9 +562,9 @@ endpoint_list = [
     "weapon" : "قوس",
     "weaponimg" : f"{weaponimages}".format("bow-icon"),
     "vision" : "نار",
-    "type" : "https://api.genshin.dev/elements/pyro/icon.png",
+    "type" : f"{vision}".format("Pyro"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('yoimiya')
+    "portrait" : f"{icons}".format('yoimiya')
     },
     {"route": "/yunjin",
     "view_func": character,
@@ -566,9 +573,9 @@ endpoint_list = [
     "weapon" : "رمح",
     "weaponimg" : f"{weaponimages}".format("polearm-icon"),
     "vision" : "أرض",
-    "type" : "https://api.genshin.dev/elements/geo/icon.png",
+    "type" : f"{vision}".format("Geo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('yun-jin')
+    "portrait" : f"{icons}".format('yun-jin')
     },
     {"route": "/zhongli",
     "view_func": character,
@@ -577,8 +584,8 @@ endpoint_list = [
     "weapon" : "رمح",
     "weaponimg" : f"{weaponimages}".format("polearm-icon"),
     "vision" : "أرض",
-    "type" : "https://api.genshin.dev/elements/geo/icon.png",
+    "type" : f"{vision}".format("Geo"),
     "released" : True,
-    "portrait" : f"{charactericon}".format('zhongli')
+    "portrait" : f"{icons}".format('zhongli')
     }
 ]
