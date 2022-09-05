@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="../favicon.ico" />
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
         <script src="{{url_for('static', filename='main.js')}}"></script>
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -12,9 +13,9 @@
         <div class="banner-short">
             <div class="navbar">
                 <ul>
-                    <li><a href="/library">library</a></li>
+                    <li><a href="/library">مكتبة الشخصيات</a></li>
                 </ul>
-                <img src="https://24wallpapers.com/app-gateway/wallpaper-uploads/wallpapers/28_12_2021/1640677143879_6.png" class="logo">
+                <img src="/static/logo.webp" class="logo">
                 <ul>
                     <li><a href="/">Home</a></li>
                 </ul>
@@ -36,19 +37,72 @@
                 <div class="chara-description">
                     <p>{{ data['vision'] }} • {{ data['weapon'] }}</p>
                 </div>
-                <div class="buildimg">
-                    <h2>Build Image</h2>
-                    <div class="img-icon">
-                        <i class='bx bx-image' id="b-img-icon"></i>
+                
+            </div>
+            <div class="character-build">
+                <h1>بناء الشخصية</h1>
+                <h2>{{ data['build']['Type'] }}</h2>
+                <div class="artifact-con">
+                    <div class="artifact">
+                        <h2>افضل ارتيفاكت</h2>
+                        <div class="artifact-info">
+                            <div class="header">
+                                <h3>{{ data['build']['artifact']['best']['name'] }}</h3>
+                                <h4>{{ data['build']['artifact']['best']['type'] }}</h4>
+                            </div>
+                            <img src="{{ data['build']['artifact']['best']['img'] }}" alt="{{ data['build']['artifact']['best']['name'] }}">
+                            
+                        </div>
+                        <p>{{ data['build']['artifact']['best']['info']['2'] }}</p>
+                        <p>{{ data['build']['artifact']['best']['info']['4'] }}</p>
+                    </div>
+                    {% if data['build']['artifact']|length == 2 %}
+                    <div class="artifact">
+                        <h2>خيار آخر للأرتيفاكت</h2>
+                        <div class="artifact-info">
+                            <div class="header">
+                                <h3>{{ data['build']['artifact']['optional']['name'] }}</h3>
+                                <h4>{{ data['build']['artifact']['optional']['type'] }}</h4>
+                            </div>
+                            <img src="{{ data['build']['artifact']['optional']['img'] }}" alt="{{ data['build']['artifact']['optional']['name'] }}">
+                            
+                        </div>
+                        <p>{{ data['build']['artifact']['optional']['info']['2'] }}</p>
+                        <p>{{ data['build']['artifact']['optional']['info']['4'] }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+
+
+                <!-- weapons -->
+                <div class="artifact-con">
+                    <div class="artifact">
+                        <h2>افضل سلاح</h2>
+                        <div class="artifact-info">
+                            <div class="header">
+                                <h3>{{ data['build']['weapons']['best']['name'] }}</h3>
+                                <h4>{{ data['build']['weapons']['best']['type'] }}</h4>
+                            </div>
+                            <img src="{{ data['build']['weapons']['best']['img'] }}" alt="{{ data['build']['weapons']['best']['name'] }}">
+                        </div>
+                    </div>
+                    <div class="artifact">
+                        <h2>خيار آخر للسلاح</h2>
+                        <div class="artifact-info">
+                            <div class="header">
+                                <h3>{{ data['build']['weapons']['optional']['name'] }}</h3>
+                                <h4>{{ data['build']['weapons']['optional']['type'] }}</h4>
+                            </div>
+                            <img src="{{ data['build']['weapons']['optional']['img'] }}" alt="{{ data['build']['weapons']['optional']['name'] }}">
+                        </div>
                     </div>
                 </div>
                 
             </div>
-            <div class="character-build">
-                <img src="{{ data['build'] }}" id="buildimg">
-
-            </div>
             <br>
+            <div class="character-skill">
+                
+            </div>
 
             
 

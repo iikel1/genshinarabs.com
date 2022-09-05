@@ -1,9 +1,10 @@
 import os
 from config import *
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, url_for, send_from_directory
 from flask_discord import DiscordOAuth2Session, requires_authorization, Unauthorized
 import pymongo
 from resources.character import endpoint_list
+from resources.team import team
 
 app = Flask(__name__)
 
@@ -35,9 +36,9 @@ def home():
             for i in iddb.find(fin):
                 userid = i[f"{user.id}"]
         except: userid = 'لم تقم بتسجيل الأيدي الخاص بك'
-        return render_template('index.html', authorized=discord.authorized, current_user=user,admins=admins, userid=userid)
+        return render_template('index.html', authorized=discord.authorized, current_user=user,admins=admins, userid=userid,team=team)
     else :
-        return render_template('index.html')
+        return render_template('index.html', team=team)
 
  
 @app.route("/oauth")
@@ -86,6 +87,13 @@ def admin():
 @app.route('/library')
 def library():
     return render_template('library.html', data=endpoint_list)
+
+
+@app.route('/robots.txt')
+@app.route('/sitemap.xml')
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
+
 
 @app.errorhandler(Unauthorized)
 def redirect_unauthorized(e):
